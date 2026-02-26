@@ -15,12 +15,12 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-[100] p-6 md:p-10 flex justify-between items-center pointer-events-none">
+        <nav className="fixed top-0 left-0 w-full z-[100] p-4 md:p-10 flex justify-between items-center pointer-events-none">
             {/* Logo */}
             <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-2xl font-black tracking-tighter italic font-display pointer-events-auto cursor-pointer"
+                className="text-xl md:text-2xl font-black tracking-tighter italic font-display pointer-events-auto cursor-pointer"
             >
                 MONSTER <span className="text-silver">ULTRA</span>
             </motion.div>
@@ -41,34 +41,47 @@ export default function Navbar() {
             {/* Mobile Menu Toggle */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden pointer-events-auto text-white p-2 glass rounded-full"
+                className="md:hidden pointer-events-auto text-white p-3 glass rounded-full"
             >
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
+                {isOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
 
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-24 left-6 right-6 glass p-8 rounded-3xl md:hidden pointer-events-auto z-[101]"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="fixed inset-0 bg-black/95 backdrop-blur-xl p-8 md:hidden pointer-events-auto z-[101] flex flex-col items-center justify-center"
                     >
-                        <div className="flex flex-col gap-6 items-center italic">
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="absolute top-6 right-6 text-white p-3 glass rounded-full"
+                        >
+                            <X size={24} />
+                        </button>
+
+                        <div className="flex flex-col gap-8 items-center italic text-center">
                             {navLinks.map((link) => (
-                                <a
+                                <motion.a
                                     key={link.name}
                                     href={link.href}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
                                     onClick={() => setIsOpen(false)}
-                                    className="text-2xl font-bold tracking-widest uppercase hover:text-accent transition-colors"
+                                    className="text-4xl font-bold tracking-widest uppercase hover:text-accent transition-colors"
                                 >
                                     {link.name}
-                                </a>
+                                </motion.a>
                             ))}
-                            <button className="mt-4 w-full py-4 rounded-full bg-white text-black font-black uppercase tracking-widest">
+                            <motion.button
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="mt-8 px-12 py-5 rounded-full bg-white text-black font-black uppercase tracking-widest"
+                            >
                                 Buy Now
-                            </button>
+                            </motion.button>
                         </div>
                     </motion.div>
                 )}

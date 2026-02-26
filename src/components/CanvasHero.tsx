@@ -106,15 +106,20 @@ export default function CanvasHero() {
     // Text Animations
     const text1Opacity = useTransform(smoothProgress, [0, 0.1, 0.2], [0, 1, 0]);
     const text1Y = useTransform(smoothProgress, [0, 0.1, 0.2], [50, 0, -50]);
+    const text1Z = useTransform(smoothProgress, [0, 0.1, 0.2], [-500, 0, 500]); // 3D depth
 
     const text2Opacity = useTransform(smoothProgress, [0.25, 0.35, 0.45], [0, 1, 0]);
     const text2X = useTransform(smoothProgress, [0.25, 0.35, 0.45], [-100, 0, 100]);
+    const text2RotationY = useTransform(smoothProgress, [0.25, 0.35, 0.45], [-20, 0, 20]); // 3D rotation
 
     const text3Opacity = useTransform(smoothProgress, [0.55, 0.65, 0.75], [0, 1, 0]);
     const text3X = useTransform(smoothProgress, [0.55, 0.65, 0.75], [100, 0, -100]);
+    const text3RotationY = useTransform(smoothProgress, [0.55, 0.65, 0.75], [20, 0, -20]); // 3D rotation
 
     const text4Opacity = useTransform(smoothProgress, [0.8, 0.95], [0, 1]);
     const text4Scale = useTransform(smoothProgress, [0.8, 0.95], [0.8, 1]);
+    const text4Z = useTransform(smoothProgress, [0.85, 0.95], [-1000, 0]); // Zoom in from depth
+    const text4RotationX = useTransform(smoothProgress, [0.85, 0.95], [20, 0]); // Tilt
 
     return (
         <section ref={containerRef} className="relative h-[600vh] bg-black">
@@ -136,55 +141,55 @@ export default function CanvasHero() {
                     className="h-full w-full object-cover"
                 />
 
-                {/* Text Overlays */}
-                <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none px-4">
+                {/* Text Overlays - Layered for 3D depth */}
+                <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none px-6" style={{ perspective: "1500px" }}>
                     <motion.div
-                        style={{ opacity: text1Opacity, y: text1Y }}
+                        style={{ opacity: text1Opacity, y: text1Y, z: text1Z }}
                         className="text-center"
                     >
-                        <h2 className="text-6xl md:text-9xl font-black tracking-tighter text-white uppercase italic font-display">
+                        <h2 className="text-4xl sm:text-6xl md:text-9xl font-black tracking-tighter text-white uppercase italic font-display leading-tight drop-shadow-2xl">
                             ZERO SUGAR.
                         </h2>
-                        <p className="text-xl md:text-3xl font-light tracking-[0.5em] text-silver mt-4">
+                        <p className="text-lg md:text-3xl font-light tracking-[0.2em] md:tracking-[0.5em] text-silver mt-4">
                             FULL FORCE.
                         </p>
                     </motion.div>
                 </div>
 
-                <div className="absolute inset-x-12 inset-y-0 z-10 flex items-center justify-start pointer-events-none">
+                <div className="absolute inset-0 z-10 flex items-center justify-center md:justify-start pointer-events-none px-6 md:px-24" style={{ perspective: "1500px" }}>
                     <motion.div
-                        style={{ opacity: text2Opacity, x: text2X }}
-                        className="max-w-xl"
+                        style={{ opacity: text2Opacity, x: text2X, rotateY: text2RotationY }}
+                        className="max-w-xl text-center md:text-left"
                     >
-                        <h2 className="text-5xl md:text-7xl font-bold text-white mb-4 font-display">
+                        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 font-display leading-tight drop-shadow-2xl">
                             White Monster Energy.
                         </h2>
-                        <p className="text-xl md:text-2xl text-silver/80">
+                        <p className="text-lg md:text-2xl text-silver/80">
                             Ultra Smooth. Ultra Clean.
                         </p>
                     </motion.div>
                 </div>
 
-                <div className="absolute inset-x-12 inset-y-0 z-10 flex items-center justify-end pointer-events-none">
+                <div className="absolute inset-0 z-10 flex items-center justify-center md:justify-end pointer-events-none px-6 md:px-24" style={{ perspective: "1500px" }}>
                     <motion.div
-                        style={{ opacity: text3Opacity, x: text3X }}
-                        className="max-w-xl text-right"
+                        style={{ opacity: text3Opacity, x: text3X, rotateY: text3RotationY }}
+                        className="max-w-xl text-center md:text-right"
                     >
-                        <h2 className="text-5xl md:text-7xl font-bold text-white mb-4 font-display">
+                        <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 font-display leading-tight drop-shadow-2xl">
                             160mg Caffeine.
                         </h2>
-                        <p className="text-xl md:text-2xl text-silver/80">
+                        <p className="text-lg md:text-2xl text-silver/80">
                             Zero Sugar, Less Calories.
                         </p>
                     </motion.div>
                 </div>
 
-                <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+                <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none px-4" style={{ perspective: "1500px" }}>
                     <motion.div
-                        style={{ opacity: text4Opacity, scale: text4Scale }}
+                        style={{ opacity: text4Opacity, scale: text4Scale, z: text4Z, rotateX: text4RotationX }}
                         className="text-center"
                     >
-                        <h2 className="text-[10vw] font-black text-white uppercase leading-none italic font-display">
+                        <h2 className="text-[15vw] md:text-[10vw] font-black text-white uppercase leading-none italic font-display drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)]">
                             UNLEASH <br /> THE ULTRA.
                         </h2>
                     </motion.div>

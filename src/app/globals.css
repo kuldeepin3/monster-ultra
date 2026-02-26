@@ -5,7 +5,7 @@
   --color-foreground: #F1F1F1;
   --color-accent: #39FF14;
   --color-silver: #A1A1A1;
-  
+
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-display: 'Syne', sans-serif;
 }
@@ -20,7 +20,15 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+}
+
+main {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .glass {

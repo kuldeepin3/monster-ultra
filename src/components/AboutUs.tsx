@@ -22,7 +22,7 @@ export default function AboutUs() {
                         <h4 className="text-accent font-mono text-sm tracking-[0.5em] uppercase mb-6">
                             The Genesis
                         </h4>
-                        <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase italic leading-none mb-8 font-display break-words">
+                        <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white uppercase italic leading-[0.9] mb-8 font-display break-words">
                             MONSTER <br />
                             <span className="text-silver">ULTRA.</span>
                         </h2>
@@ -30,18 +30,18 @@ export default function AboutUs() {
                             Zero Ultra wasn't just another flavor—it was a revolution. Born from the need for a crisp, refreshing, and clean energy experience without the weight of sugar. It’s the ultimate choice for the relentless.
                         </p>
 
-                        <div className="flex flex-wrap gap-8 md:gap-12 mt-4">
+                        <div className="grid grid-cols-3 gap-4 md:gap-12 mt-4 w-full">
                             <div className="flex flex-col">
-                                <p className="text-3xl md:text-4xl font-bold text-white mb-2">0g</p>
-                                <p className="text-[10px] text-silver/40 uppercase tracking-widest font-bold">Sugar Content</p>
+                                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">0g</p>
+                                <p className="text-[8px] md:text-[10px] text-silver/40 uppercase tracking-widest font-bold">Sugar</p>
                             </div>
                             <div className="flex flex-col">
-                                <p className="text-3xl md:text-4xl font-bold text-white mb-2">10cal</p>
-                                <p className="text-[10px] text-silver/40 uppercase tracking-widest font-bold">Per Serving</p>
+                                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">10cal</p>
+                                <p className="text-[8px] md:text-[10px] text-silver/40 uppercase tracking-widest font-bold">Calories</p>
                             </div>
                             <div className="flex flex-col">
-                                <p className="text-3xl md:text-4xl font-bold text-white mb-2">160mg</p>
-                                <p className="text-[10px] text-silver/40 uppercase tracking-widest font-bold">Pure Caffeine</p>
+                                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">160mg</p>
+                                <p className="text-[8px] md:text-[10px] text-silver/40 uppercase tracking-widest font-bold">Caffeine</p>
                             </div>
                         </div>
                     </motion.div>
@@ -76,10 +76,10 @@ export default function AboutUs() {
                         <motion.div
                             animate={{ y: [0, -15, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-8 -right-8 w-32 h-32 md:w-40 md:h-40 glass rounded-full flex flex-col items-center justify-center text-center p-4 border-accent/20 z-30 shadow-xl"
+                            className="absolute -top-4 -right-4 sm:-top-8 sm:-right-8 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 glass rounded-full flex flex-col items-center justify-center text-center p-4 border-accent/20 z-30 shadow-xl"
                         >
-                            <p className="text-[10px] uppercase tracking-widest text-accent mb-2 font-bold">Authentic</p>
-                            <p className="text-lg md:text-xl font-black italic leading-none font-display">FULL <br /> FLAVOR</p>
+                            <p className="text-[8px] sm:text-[10px] uppercase tracking-widest text-accent mb-1 sm:mb-2 font-bold">Authentic</p>
+                            <p className="text-sm sm:text-lg md:text-xl font-black italic leading-none font-display">FULL <br /> FLAVOR</p>
                         </motion.div>
                     </motion.div>
                 </div>
